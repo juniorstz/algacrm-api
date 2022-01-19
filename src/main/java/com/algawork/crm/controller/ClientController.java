@@ -8,14 +8,14 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
-@RequestMapping("/Clientes")
+@RestController  //É um controlador Rest, é uma classe aonde vamos receber nossos EndPoints Rest
+@RequestMapping("/Clientes") //Essa anotação aonde vai mappear  os EndPoints quando receber requisões com /Clientes
 public class ClientController {
 
-    @Autowired
+    @Autowired //AutoWired vai injetar uma instânca de clienteRepository ali(Instanciar automáticamente) Uma implementação em tempo de execução.
     private ClienteRepository ClienteRepository;
 
-    @GetMapping
+    @GetMapping //Quando chegar um verbo HTTP Get na URI /Clintes é o método de baixo que vai responder a requição
     public List<cliente> listar(){
         return ClienteRepository.findAll();
 
